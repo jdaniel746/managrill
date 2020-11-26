@@ -1,130 +1,334 @@
-<!-- banner -->
-<div class="banner" id="home">
-	<div class="layer">
-		<div class="container">
-			<div class="banner-text-agile">
-				<div class="row">
-					<div class="col-lg-6 p-0">
-						<!-- banner slider-->
-					<div class="csslider infinity" id="slider1">
-						<input type="radio" name="slides" checked="checked" id="slides_1" />
-						<input type="radio" name="slides" id="slides_2" />
-						<input type="radio" name="slides" id="slides_3" />
-						<ul class="banner_slide_bg">
-							<li>
-								<div class="container-fluid">
-									<div class="w3ls_banner_txt">
-										<h3 class="b-w3ltxt text-capitalize mt-md-4"><span>Delicious & crispy</span> Recipes.</h3>
-										<p class="w3ls_pvt-title my-3">Onec Consequat Sapien Ut Leo Cursus Rhoncus. Nullam Dui Mi, Vulputate Ac 
-										Metus Semper Nullam Dui Mi. Vestibulum Ante Ipsum Primis In Faucibus Orci Luctus Et Ultrices Posuere 
-										Cubilia Curae.</p>
-										<a [routerLink]="['about']" class="btn btn-banner my-sm-3 mb-3">Read More</a>
-										<a [routerLink]="['contact']" class="btn btn-banner1 my-sm-3 mb-3">Contact Us</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="container-fluid">
-									<div class="w3ls_banner_txt">
-										<h3 class="b-w3ltxt text-capitalize mt-md-4"><span>Tasty and healthy</span> Food</h3>
-										<p class="w3ls_pvt-title my-3">Onec Consequat Sapien Ut Leo Cursus Rhoncus. Nullam Dui Mi, Vulputate Ac 
-										Metus Semper Nullam Dui Mi. Vestibulum Ante Ipsum Primis In Faucibus Orci Luctus Et Ultrices Posuere 
-										Cubilia Curae.</p>
-										<a [routerLink]="['about']" class="btn btn-banner my-sm-3 mb-3">Read More</a>
-										<a [routerLink]="['contact']" class="btn btn-banner1 my-sm-3 mb-3">Contact Us</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="container-fluid">
-									<div class="w3ls_banner_txt">
-										<h3 class="b-w3ltxt text-capitalize mt-md-4"><span>Delicious & crispy</span> Recipes</h3>
-										<p class="w3ls_pvt-title my-3">Onec Consequat Sapien Ut Leo Cursus Rhoncus. Nullam Dui Mi, Vulputate Ac 
-										Metus Semper Nullam Dui Mi. Vestibulum Ante Ipsum Primis In Faucibus Orci Luctus Et Ultrices Posuere 
-										Cubilia Curae.</p>
-										<a [routerLink]="['about']" class="btn btn-banner my-sm-3 mb-3">Read More</a>
-										<a [routerLink]="['contact']" class="btn btn-banner1 my-sm-3 mb-3">Contact Us</a>
-									</div>
-								</div>
-							</li>
-						</ul>
-						<div class="navigation">
-							<div>
-								<label for="slides_1"></label>
-								<label for="slides_2"></label>
-								<label for="slides_3"></label>
-							</div>
-						</div>
-					</div>
-					<!-- //banner slider-->
+<app-banner></app-banner>
+<!-- //products -->
+<div class="row" style="margin-right: 0px;">
+  <div class="col-md-8 my-4">
+    <div class="" *ngFor="let cat of categoryList">
+      <div class="m-category-name my-4">{{cat.name}}</div>
+      <div class="my-delivery-loop-items col-md-8 my-2" style="margin: auto;" *ngFor="let prod of cat.products">
+        <div style="display: flex">
+          <div class="my-delivery-loop-image">
+            <img class="my-delivery-loop-img" src="{{prod.image}}" alt="product-menu">
+          </div>
+          <div class="my-delivery-loop-text">
+            <h3>{{prod.name}}</h3>
+            <p>{{prod.description}}</p>
+          </div>
+        </div>
+        <div class="fdm-loop-actions">
+          <button class="btn btn-primary" (click)="selectProduct(prod)">
+            <svg height="10pt" id="icon-fdm-plugin-cart" viewBox="0 -31 512.00026 512" width="10pt"
+                 xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+              <path
+                d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path>
+              <path
+                d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path>
+              <path
+                d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path>
+            </svg>
+            Agregar
+          </button>
+          <div style="float: right">
+            <span class="fdm-loop-item-price">{{prod.price | currency}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //recipe -->
+  <div id="recipe" class="col-md-4 my-4">
+    <div class="my-delivery-clumn-cart-wrap" style="margin: auto;">
+      <div class="my-delivery-cart">
+        <div class="my-delivery-cart-title" >
+          <span class="fdm-count-products">{{cart.products.length}}</span>
+          <h3>Tus ordenes</h3>
+          <span class="fdm-svg-cart"></span>
+        </div>
+        <div class="my-delivery-cart-items" *ngFor="let item of cart.products">
+          <span class="fdm-item-title" *ngIf="getSizePrice(item); else simpleName"><span>{{item.quantity}} x </span>{{item.name}}- {{getSizePrice(item).name}}</span>
+          <ng-template #simpleName><span class="fdm-item-title"><span>{{item.quantity}} x </span>{{item.name}}</span></ng-template>
+          <span class="fdm-item-price" *ngIf="getSizePrice(item); else simplePrice">{{getSizePrice(item).price | currency}}</span>
+          <ng-template #simplePrice><span class="fdm-item-price">{{item.price | currency}}</span></ng-template><br>
+          <div *ngFor="let t of item.toppins">
+            <div *ngIf="t.selected">
+              <span class="fdm-item-desc" ><span>{{item.quantity}} x </span><span>{{t.name}}</span></span><span class="fdm-item-price">{{t.price | currency}}</span><br>
+            </div>
+          </div>
+          <span class="fdm-item-desc">{{item.note}}</span>
+          <a class="my-delivery-btn-remove" (click)="delete(item)">
+            <svg height="10pt" id="icon-fdm-plugin-trash" viewBox="-40 0 427 427.00131" width="10pt"
+                 xmlns="http://www.w3.org/2000/svg" fill="#ea1d2b">
+              <path
+                d="m232.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0"></path>
+              <path
+                d="m114.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0"></path>
+              <path
+                d="m28.398438 127.121094v246.378906c0 14.5625 5.339843 28.238281 14.667968 38.050781 9.285156 9.839844 22.207032 15.425781 35.730469 15.449219h189.203125c13.527344-.023438 26.449219-5.609375 35.730469-15.449219 9.328125-9.8125 14.667969-23.488281 14.667969-38.050781v-246.378906c18.542968-4.921875 30.558593-22.835938 28.078124-41.863282-2.484374-19.023437-18.691406-33.253906-37.878906-33.257812h-51.199218v-12.5c.058593-10.511719-4.097657-20.605469-11.539063-28.03125-7.441406-7.421875-17.550781-11.5546875-28.0625-11.46875h-88.796875c-10.511719-.0859375-20.621094 4.046875-28.0625 11.46875-7.441406 7.425781-11.597656 17.519531-11.539062 28.03125v12.5h-51.199219c-19.1875.003906-35.394531 14.234375-37.878907 33.257812-2.480468 19.027344 9.535157 36.941407 28.078126 41.863282zm239.601562 279.878906h-189.203125c-17.097656 0-30.398437-14.6875-30.398437-33.5v-245.5h250v245.5c0 18.8125-13.300782 33.5-30.398438 33.5zm-158.601562-367.5c-.066407-5.207031 1.980468-10.21875 5.675781-13.894531 3.691406-3.675781 8.714843-5.695313 13.925781-5.605469h88.796875c5.210937-.089844 10.234375 1.929688 13.925781 5.605469 3.695313 3.671875 5.742188 8.6875 5.675782 13.894531v12.5h-128zm-71.199219 32.5h270.398437c9.941406 0 18 8.058594 18 18s-8.058594 18-18 18h-270.398437c-9.941407 0-18-8.058594-18-18s8.058593-18 18-18zm0 0"></path>
+              <path
+                d="m173.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0"></path>
+            </svg>
+            Eliminar</a>
+        </div>
+        <div class="my-delivery-cart-totals">
+          <span class="fdm-item-subtotal">Subtotal:</span><span
+          class="fdm-item-subtotal-price">{{cart.getSubtotal() | currency}}</span><br>
+          <span class="fdm-item-subtotal fdm-item-subtotal">Delivery: {{cart.deliveryType}}
+        </span><span class="fdm-item-subtotal-price" *ngIf="cart.deliveryType != undefined && cart.deliveryType.includes('Domicilio')">{{settings.companyInfo.deliveryPriceMin | currency}}-{{settings.companyInfo.deliveryPriceMax | currency}}</span><br>
+          <span class="fdm-item-total">Total:</span><span
+          class="fdm-item-total-price">{{cart.getSubtotal() + cart.costoEnvio | currency}}</span>
+        </div>
+        <div class="my-delivery-cart-order-details">
+          <div class="fdm-cart-order-details-title-div">
+            <span class="fdm-cart-order-details-title">Detalles del pedido</span>
+          </div>
+          <div class="fdm-insert-details-order">
+            <span class="fdm-cart-order-details">Nombres:</span><span class="fdm-cart-order-details-text">{{cart.names}}</span><br>
+            <span class="fdm-cart-order-details">Telefono:</span><span
+            class="fdm-cart-order-details-text">{{cart.phone}}</span><br>
+            <span class="fdm-cart-order-details">Dirección:</span><span class="fdm-cart-order-details-text">{{cart.direction}}</span><br>
+            <span class="fdm-cart-order-details-text"> </span>
+          </div>
+          <a class="my-delivery-btn-edit" (click)="openEdit()">
+            <svg height="10pt" fill="#ea1d2b" id="icon-fdm-plugin-pencil" viewBox="-15 -15 484.00019 484" width="10pt"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m401.648438 18.234375c-24.394532-24.351563-63.898438-24.351563-88.292969 0l-22.101563 22.222656-235.269531 235.144531-.5.503907c-.121094.121093-.121094.25-.25.25-.25.375-.625.746093-.871094 1.121093 0 .125-.128906.125-.128906.25-.25.375-.371094.625-.625 1-.121094.125-.121094.246094-.246094.375-.125.375-.25.625-.378906 1 0 .121094-.121094.121094-.121094.25l-52.199219 156.96875c-1.53125 4.46875-.367187 9.417969 2.996094 12.734376 2.363282 2.332031 5.550782 3.636718 8.867188 3.625 1.355468-.023438 2.699218-.234376 3.996094-.625l156.847656-52.324219c.121094 0 .121094 0 .25-.121094.394531-.117187.773437-.285156 1.121094-.503906.097656-.011719.183593-.054688.253906-.121094.371094-.25.871094-.503906 1.246094-.753906.371093-.246094.75-.621094 1.125-.871094.125-.128906.246093-.128906.246093-.25.128907-.125.378907-.246094.503907-.5l257.371093-257.371094c24.351563-24.394531 24.351563-63.898437 0-88.289062zm-232.273438 353.148437-86.914062-86.910156 217.535156-217.535156 86.914062 86.910156zm-99.15625-63.808593 75.929688 75.925781-114.015626 37.960938zm347.664062-184.820313-13.238281 13.363282-86.917969-86.917969 13.367188-13.359375c14.621094-14.609375 38.320312-14.609375 52.945312 0l33.964844 33.964844c14.511719 14.6875 14.457032 38.332031-.121094 52.949218zm0 0"></path>
+            </svg>
+            Editar detalles
+          </a>
+        </div>
+        <div class="my-delivery-cart-order-details">
+          <div class="fdm-cart-order-details-title-div">
+            <span class="fdm-cart-order-details-title">Detalles del pago</span>
+          </div>
+          <div class="fdm-insert-details-order">
+            <span class="fdm-cart-order-details">Banco: </span><span class="fdm-cart-order-details-text">{{cart.bank}}</span><br>
+            <span class="fdm-cart-order-details">N° confirmación: </span><span class="fdm-cart-order-details-text">{{cart.confirm}}</span><br>
+            <span class="fdm-cart-order-details">Fecha transacción: </span><span class="fdm-cart-order-details-text">{{cart.paymentdate}}</span><br>
+          </div>
+          <a class="my-delivery-btn-edit" (click)="closePopup('popupPayment')" *ngIf="selectedPayment && selectedPayment.$key ">
+            <svg height="10pt" fill="#ea1d2b" id="icon-fdm-plugin-pencil" viewBox="-15 -15 484.00019 484" width="10pt"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m401.648438 18.234375c-24.394532-24.351563-63.898438-24.351563-88.292969 0l-22.101563 22.222656-235.269531 235.144531-.5.503907c-.121094.121093-.121094.25-.25.25-.25.375-.625.746093-.871094 1.121093 0 .125-.128906.125-.128906.25-.25.375-.371094.625-.625 1-.121094.125-.121094.246094-.246094.375-.125.375-.25.625-.378906 1 0 .121094-.121094.121094-.121094.25l-52.199219 156.96875c-1.53125 4.46875-.367187 9.417969 2.996094 12.734376 2.363282 2.332031 5.550782 3.636718 8.867188 3.625 1.355468-.023438 2.699218-.234376 3.996094-.625l156.847656-52.324219c.121094 0 .121094 0 .25-.121094.394531-.117187.773437-.285156 1.121094-.503906.097656-.011719.183593-.054688.253906-.121094.371094-.25.871094-.503906 1.246094-.753906.371093-.246094.75-.621094 1.125-.871094.125-.128906.246093-.128906.246093-.25.128907-.125.378907-.246094.503907-.5l257.371093-257.371094c24.351563-24.394531 24.351563-63.898437 0-88.289062zm-232.273438 353.148437-86.914062-86.910156 217.535156-217.535156 86.914062 86.910156zm-99.15625-63.808593 75.929688 75.925781-114.015626 37.960938zm347.664062-184.820313-13.238281 13.363282-86.917969-86.917969 13.367188-13.359375c14.621094-14.609375 38.320312-14.609375 52.945312 0l33.964844 33.964844c14.511719 14.6875 14.457032 38.332031-.121094 52.949218zm0 0"></path>
+            </svg>
+            Editar detalles pago
+          </a>
+          <div class="fdm-payment-method-div">
+            <select class="control" [(ngModel)]="cart.payment" (change)="onPaymentChange($event)">
+              <option value="undefined" selected disabled>Método de pago
+              </option>
+              <option [ngValue]="pay" *ngFor="let pay of paymentMethodList">{{pay.name}}
+              </option>
+            </select>
+            <input type="number" placeholder="Vuelto para:" class="fdm-popup-input-text control" maxlength="22" [(ngModel)]="cart.change"
+                   *ngIf="cart.payment != undefined && cart.payment.categoryPayment === 1"><br>
+          </div>
+        </div>
 
-					</div>
-					<div class="col-lg-6 col-md-8 mt-lg-0 mt-5">
-						<img src="assets/images/banner.jpg" alt="" class="img-fluid" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="my-delivery-create-order" style="text-align: -webkit-center;">
+          <button class="btn btn-primary" (click)="send()" style="text-align: -webkit-center;">
+            <svg height="14pt" id="icon-fdm-plugin-btn" viewBox="-23 -21 682 682.66669" width="14pt"
+                 xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+              <path
+                d="m544.386719 93.007812c-59.875-59.945312-139.503907-92.9726558-224.335938-93.007812-174.804687 0-317.070312 142.261719-317.140625 317.113281-.023437 55.894531 14.578125 110.457031 42.332032 158.550781l-44.992188 164.335938 168.121094-44.101562c46.324218 25.269531 98.476562 38.585937 151.550781 38.601562h.132813c174.785156 0 317.066406-142.273438 317.132812-317.132812.035156-84.742188-32.921875-164.417969-92.800781-224.359376zm-224.335938 487.933594h-.109375c-47.296875-.019531-93.683594-12.730468-134.160156-36.742187l-9.621094-5.714844-99.765625 26.171875 26.628907-97.269531-6.269532-9.972657c-26.386718-41.96875-40.320312-90.476562-40.296875-140.28125.054688-145.332031 118.304688-263.570312 263.699219-263.570312 70.40625.023438 136.589844 27.476562 186.355469 77.300781s77.15625 116.050781 77.132812 186.484375c-.0625 145.34375-118.304687 263.59375-263.59375 263.59375zm144.585938-197.417968c-7.921875-3.96875-46.882813-23.132813-54.148438-25.78125-7.257812-2.644532-12.546875-3.960938-17.824219 3.96875-5.285156 7.929687-20.46875 25.78125-25.09375 31.066406-4.625 5.289062-9.242187 5.953125-17.167968 1.984375-7.925782-3.964844-33.457032-12.335938-63.726563-39.332031-23.554687-21.011719-39.457031-46.960938-44.082031-54.890626-4.617188-7.9375-.039062-11.8125 3.476562-16.171874 8.578126-10.652344 17.167969-21.820313 19.808594-27.105469 2.644532-5.289063 1.320313-9.917969-.664062-13.882813-1.976563-3.964844-17.824219-42.96875-24.425782-58.839844-6.4375-15.445312-12.964843-13.359374-17.832031-13.601562-4.617187-.230469-9.902343-.277344-15.1875-.277344-5.28125 0-13.867187 1.980469-21.132812 9.917969-7.261719 7.933594-27.730469 27.101563-27.730469 66.105469s28.394531 76.683594 32.355469 81.972656c3.960937 5.289062 55.878906 85.328125 135.367187 119.648438 18.90625 8.171874 33.664063 13.042968 45.175782 16.695312 18.984374 6.03125 36.253906 5.179688 49.910156 3.140625 15.226562-2.277344 46.878906-19.171875 53.488281-37.679687 6.601563-18.511719 6.601563-34.375 4.617187-37.683594-1.976562-3.304688-7.261718-5.285156-15.183593-9.253906zm0 0"
+                fill-rule="evenodd"></path>
+            </svg>
+            Enviar orden
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- //banner -->
+<!--Modal pago-->
+<div class="fdm-popup-product-init" id="popupPayment" >
+  <div class="fdm-popup-product-content col-sm-12 col-md-5">
+    <div class="fdm-popup-close-btn" (click)="closePopup('popupPayment')">
+      <svg height="15pt" viewBox="0 0 511.992 511.992" width="15pt" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m415.402344 495.421875-159.40625-159.410156-159.40625 159.410156c-22.097656 22.09375-57.921875 22.09375-80.019532 0-22.09375-22.097656-22.09375-57.921875 0-80.019531l159.410157-159.40625-159.410157-159.40625c-22.09375-22.097656-22.09375-57.921875 0-80.019532 22.097657-22.09375 57.921876-22.09375 80.019532 0l159.40625 159.410157 159.40625-159.410157c22.097656-22.09375 57.921875-22.09375 80.019531 0 22.09375 22.097657 22.09375 57.921876 0 80.019532l-159.410156 159.40625 159.410156 159.40625c22.09375 22.097656 22.09375 57.921875 0 80.019531-22.097656 22.09375-57.921875 22.09375-80.019531 0zm0 0"
+          fill="#e76e54"></path>
+      </svg>
+    </div>
+    <h3 class="mb-2">Confirmar pago</h3>
+    <div class="teste">
+      <div class="fdm-product-add-extras">
+        <img src="{{selectedPayment.image}}">
+      </div>
+      <form [formGroup]="paymentForm" (ngSubmit)="onPaymentSubmit('popupPayment')">
+        <div class="row mt-2">
+          <div class="col-sm-6">
+            <select class="control form-control" formControlName="bank" [ngClass]="{ 'is-invalid': submittedPayment && p.bank.errors }">
+              <option value="" selected disabled>Banco
+              </option>
+              <option [value]="b" *ngFor="let b of settings.bankList">{{b}}
+              </option>
+            </select>
+            <div *ngIf="submittedPayment && p.bank.errors" class="invalid-feedback">
+              <div *ngIf="p.bank.errors.required">Debe seleccionar un banco!</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input type="date" formControlName="date" class="control form-control" [ngClass]="{ 'is-invalid': submittedPayment && p.date.errors }" />
+            <div *ngIf="submittedPayment && p.date.errors" class="invalid-feedback">
+              <div *ngIf="p.date.errors.required">Debe ingresar la fecha de la transacción!</div>
+              <div *ngIf="p.date.errors.pattern">Debe ingresar un formato de fecha válida!</div>
+            </div>
+          </div>
+        </div>
+        <div class="cols-12">
+          <input type="text" formControlName="confirm" style="margin-bottom: -15px;"  placeholder="N° Confirmación"  class="fdm-popup-input-text fdm-tel-us form-control control" maxlength="13" [ngClass]="{ 'is-invalid': submittedPayment && p.confirm.errors }"><br>
+          <div *ngIf="submittedPayment && p.confirm.errors" class="invalid-feedback">
+            <div *ngIf="p.confirm.errors.required">Debe ingresar su número de confirmación!</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary mr-1 mb-2">
+            <svg height="10pt" fill="#ffffff" id="icon-fdm-plugin-pencil" viewBox="-15 -15 484.00019 484" width="10pt" xmlns="http://www.w3.org/2000/svg"><path d="m401.648438 18.234375c-24.394532-24.351563-63.898438-24.351563-88.292969 0l-22.101563 22.222656-235.269531 235.144531-.5.503907c-.121094.121093-.121094.25-.25.25-.25.375-.625.746093-.871094 1.121093 0 .125-.128906.125-.128906.25-.25.375-.371094.625-.625 1-.121094.125-.121094.246094-.246094.375-.125.375-.25.625-.378906 1 0 .121094-.121094.121094-.121094.25l-52.199219 156.96875c-1.53125 4.46875-.367187 9.417969 2.996094 12.734376 2.363282 2.332031 5.550782 3.636718 8.867188 3.625 1.355468-.023438 2.699218-.234376 3.996094-.625l156.847656-52.324219c.121094 0 .121094 0 .25-.121094.394531-.117187.773437-.285156 1.121094-.503906.097656-.011719.183593-.054688.253906-.121094.371094-.25.871094-.503906 1.246094-.753906.371093-.246094.75-.621094 1.125-.871094.125-.128906.246093-.128906.246093-.25.128907-.125.378907-.246094.503907-.5l257.371093-257.371094c24.351563-24.394531 24.351563-63.898437 0-88.289062zm-232.273438 353.148437-86.914062-86.910156 217.535156-217.535156 86.914062 86.910156zm-99.15625-63.808593 75.929688 75.925781-114.015626 37.960938zm347.664062-184.820313-13.238281 13.363282-86.917969-86.917969 13.367188-13.359375c14.621094-14.609375 38.320312-14.609375 52.945312 0l33.964844 33.964844c14.511719 14.6875 14.457032 38.332031-.121094 52.949218zm0 0"></path></svg>
+            Continuar</button>
+          <button class="btn btn-secondary mb-2" type="reset" (click)="onPaymentReset()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-<!-- about -->
-<section class="about py-5">
-	<div class="container py-md-3">
-		<h2 class="heading text-center mb-sm-5 mb-4">About Us </h2>
-		<div class="row">
-			<div class="col-lg-8">
-				<h4 class="about-left">Enjoy the greatest Pleasure in our hotel!</h4>
-				<p class="mt-sm-4 mt-3">Suspendisse id felis sed felis tincidunt finibus. Nulla sed justo tellus. Donec ut felis ante. Quisque ac sapien 
-				quis orci pulvinar finibus quis eu urna. onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus semper Nullam
-				dui mi.	Vestibulum ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur quis.</p>
-				<div class="row mt-4">
-					<div class="col-md-3 col-6">
-						<div class="about-box">
-							<span class="icon">
-								<span class="fa fa-birthday-cake"></span>
-							</span>
-							<h4>Healthy</h4>
-						</div>
-					</div>
-					<div class="col-md-3 col-6">
-						<div class="about-box">
-							<span class="icon">
-								<span class="fa fa-rocket"></span>
-							</span>
-							<h4>Spicy & Hot</h4>
-						</div>
-					</div>
-					<!-- .about-box ends here -->
-					<div class="col-md-3 col-6 mt-md-0 mt-4">
-						<div class="about-box">
-							<span class="icon">
-								<span class="fa fa-cutlery"></span>
-							</span>
-							<h4>Crunchy</h4>
-						</div>
-					</div>
-					<div class="col-md-3 col-6 mt-md-0 mt-4">
-						<div class="about-box">
-							<span class="icon">
-								<span class="fa fa-coffee"></span>
-							</span>
-							<h4>Reciepe</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-8 dental">
-				<img src="assets/images/banner1.jpg" class="img-fluid" alt="" />
-			</div>
-		</div>
-	</div>
-</section>
-<!-- //about -->
+<!--Modal pedido-->
+<div class="fdm-popup-product-init" id="popup" >
+  <div class="fdm-popup-product-content col-sm-12 col-md-5">
+    <div class="fdm-popup-close-btn" (click)="closePopup('popup')">
+      <svg height="15pt" viewBox="0 0 511.992 511.992" width="15pt" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m415.402344 495.421875-159.40625-159.410156-159.40625 159.410156c-22.097656 22.09375-57.921875 22.09375-80.019532 0-22.09375-22.097656-22.09375-57.921875 0-80.019531l159.410157-159.40625-159.410157-159.40625c-22.09375-22.097656-22.09375-57.921875 0-80.019532 22.097657-22.09375 57.921876-22.09375 80.019532 0l159.40625 159.410157 159.40625-159.410157c22.097656-22.09375 57.921875-22.09375 80.019531 0 22.09375 22.097657 22.09375 57.921876 0 80.019532l-159.410156 159.40625 159.410156 159.40625c22.09375 22.097656 22.09375 57.921875 0 80.019531-22.097656 22.09375-57.921875 22.09375-80.019531 0zm0 0"
+          fill="#e76e54"></path>
+      </svg>
+    </div>
+    <h3>{{selectedProduct.name}}</h3>
+    <p>{{selectedProduct.description}}</p>
+    <div class="teste">
+      <div *ngIf="selectedProduct.toppins !== undefined && selectedProduct.toppins.length > 0">
+        <p>Elige tus toppins </p>
+        <div class="custom-control form-control-lg toppins">
+          <label  *ngFor="let top of selectedProduct.toppins" class="mx-3 lbl">
+            <input type="checkbox" class="mx-1" [(ngModel)]="top.selected" >
+            {{top.name}} <span style="font-size: 16px; float: right">{{top.price | currency}}</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="sizingList !== undefined && sizingList.length > 0 && selectedProduct.sizeDefault !== undefined">
+        <p>Elige el tamaño </p>
+        <div class="custom-control form-control-lg toppins">
+          <label  *ngFor="let s of sizingList" class="mx-3 lbl">
+            <input type="radio" id="{{s.$key}}" class="mx-1" name="size" [value]="s.$key" [(ngModel)]="selectedProduct.sizeDefault"/>
+            {{s.name}} <span style="font-size: 16px; float: right">{{s.price | currency}}</span>
+          </label>
+        </div>
+      </div>
+      <input type="text" placeholder="Nota del producto ..."
+             class="fdm-text-product-note control" [(ngModel)]="selectedProduct.note">
+    </div>
+    <div class="fdm-popup-product-action">
+      <div class="fdm-popup-product-content-qty">
+        <div class="fdm-click-minus" (click)="selectedProduct.quantity > 1? selectedProduct.quantity = selectedProduct.quantity -1:selectedProduct.quantity">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 496.158 496.158" style="enable-background:new 0 0 496.158 496.158;" xml:space="preserve" width="30px" height="30px" class="hovered-paths"><g><path style="fill:var(--main-color)" d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082  c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z" data-original="#E04F5F" class="" data-old_color="#E04F5F"></path><path
+            style="fill:#FFFFFF"
+            d="M383.546,206.286H112.612c-3.976,0-7.199,3.225-7.199,7.2v69.187c0,3.976,3.224,7.199,7.199,7.199  h270.934c3.976,0,7.199-3.224,7.199-7.199v-69.187C390.745,209.511,387.521,206.286,383.546,206.286z"
+            data-original="#FFFFFF" class="hovered-path active-path" data-old_color="#FFFFFF"></path></g> </svg>
+        </div>
+        <input type="text" class="fdm-popup-input-text fmd-item-qty" value="{{selectedProduct.quantity}}">
+        <div class="fdm-click-plus" (click)="selectedProduct.quantity = selectedProduct.quantity + 1">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 512 512" width="30px" class="">
+            <g>
+              <path
+                d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0"
+                fill="#2196f3" data-original="#2196F3" class="active-path" style="fill:var(--main-color)"
+                data-old_color="#2196f3"></path>
+              <path
+                d="m368 277.332031h-90.667969v90.667969c0 11.777344-9.554687 21.332031-21.332031 21.332031s-21.332031-9.554687-21.332031-21.332031v-90.667969h-90.667969c-11.777344 0-21.332031-9.554687-21.332031-21.332031s9.554687-21.332031 21.332031-21.332031h90.667969v-90.667969c0-11.777344 9.554687-21.332031 21.332031-21.332031s21.332031 9.554687 21.332031 21.332031v90.667969h90.667969c11.777344 0 21.332031 9.554687 21.332031 21.332031s-9.554687 21.332031-21.332031 21.332031zm0 0"
+                fill="#fafafa" data-original="#FAFAFA" class="" style="fill:#FFFFFF" data-old_color="#fafafa"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="fdm-popup-product-content-add-cart">
+        <button class="btn btn-primary" (click)="add(selectedProduct)" style="float: right">
+          <svg height="10pt" id="icon-fdm-plugin-cart" viewBox="0 -31 512.00026 512" width="10pt"
+               xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+            <path
+              d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path>
+            <path
+              d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path>
+            <path
+              d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path>
+          </svg>
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal detail-->
+<div class="fdm-popup-init" id="popupDetail">
+  <div class="fdm-popup-content-edit col-sm-12 col-md-5" >
+    <div class="fdm-popup-close-btn" (click)="closePopup('popupDetail')"><svg height="15pt" viewBox="0 0 511.992 511.992" width="15pt" xmlns="http://www.w3.org/2000/svg"><path d="m415.402344 495.421875-159.40625-159.410156-159.40625 159.410156c-22.097656 22.09375-57.921875 22.09375-80.019532 0-22.09375-22.097656-22.09375-57.921875 0-80.019531l159.410157-159.40625-159.410157-159.40625c-22.09375-22.097656-22.09375-57.921875 0-80.019532 22.097657-22.09375 57.921876-22.09375 80.019532 0l159.40625 159.410157 159.40625-159.410157c22.097656-22.09375 57.921875-22.09375 80.019531 0 22.09375 22.097657 22.09375 57.921876 0 80.019532l-159.410156 159.40625 159.410156 159.40625c22.09375 22.097656 22.09375 57.921875 0 80.019531-22.097656 22.09375-57.921875 22.09375-80.019531 0zm0 0" fill="#e76e54"></path></svg></div>
+    <h2>Editar detalles del pedido
+    </h2>
+    <div class="fdm-popup-form">
+      <div class="fdm-popup-form-radios">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit('popupDetail')">
+          <input type="text" formControlName="name" style="margin-bottom: -15px;"  placeholder="Nombre completo"  class="fdm-popup-input-text form-control control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"><br>
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback"><div *ngIf="f.name.errors.required">Debe ingresar su nombre!</div></div>
+          <input type="text" formControlName="phone" style="margin-bottom: -15px;"  placeholder="Teléfono"  class="fdm-popup-input-text fdm-tel-us form-control control" maxlength="14" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" mask="(000) 000-0000"><br>
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Debe ingresar su número teléfono!</div>
+            <div *ngIf="f.phone.errors.pattern">El número de teléfono no tiene un formato válido!</div>
+          </div>
+          <input type="text" formControlName="email" placeholder="Email" style="margin-bottom: -15px;"  class="fdm-popup-input-text fdm-tel-us form-control control" maxlength="30" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"><br>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback"><div *ngIf="f.email.errors.email">Debe ingresar una dirección de correo válida!</div></div>
+          <select class="control form-control" formControlName="deliveryType" [ngClass]="{ 'is-invalid': submitted && f.deliveryType.errors }">
+            <option value="" selected disabled>Tipo entrega
+            </option>
+            <option [value]="dt" *ngFor="let dt of settings.deliveryType">{{dt}}
+            </option>
+          </select>
+          <div *ngIf="submitted && f.deliveryType.errors" class="invalid-feedback">
+            <div *ngIf="f.deliveryType.errors.required">Debe seleccionar un tipo de entrega!</div>
+          </div>
+          <input type="text" placeholder="Dirección" formControlName="direction" *ngIf="f.deliveryType.value && f.deliveryType.value.toString().includes('Domicilio')"
+                 style="margin-bottom: -15px;" class="fdm-popup-input-text form-control control" [ngClass]="{ 'is-invalid': submitted && f.deliveryType.value.toString().includes('Domicilio') && f.direction.value === ''}"><br>
+          <div *ngIf="submitted && f.deliveryType.value.toString().includes('Domicilio')" class="invalid-feedback">
+            <div *ngIf="f.direction.value === ''">Debe ingresar su dirección!</div>
+          </div>
+          <input type="text" placeholder="Comentario" formControlName="note" class="fdm-popup-input-text form-control control"><br>
+          <div class="text-center">
+            <button class="btn btn-primary mr-1">
+              <svg height="10pt" fill="#ffffff" id="icon-fdm-plugin-pencil" viewBox="-15 -15 484.00019 484" width="10pt" xmlns="http://www.w3.org/2000/svg"><path d="m401.648438 18.234375c-24.394532-24.351563-63.898438-24.351563-88.292969 0l-22.101563 22.222656-235.269531 235.144531-.5.503907c-.121094.121093-.121094.25-.25.25-.25.375-.625.746093-.871094 1.121093 0 .125-.128906.125-.128906.25-.25.375-.371094.625-.625 1-.121094.125-.121094.246094-.246094.375-.125.375-.25.625-.378906 1 0 .121094-.121094.121094-.121094.25l-52.199219 156.96875c-1.53125 4.46875-.367187 9.417969 2.996094 12.734376 2.363282 2.332031 5.550782 3.636718 8.867188 3.625 1.355468-.023438 2.699218-.234376 3.996094-.625l156.847656-52.324219c.121094 0 .121094 0 .25-.121094.394531-.117187.773437-.285156 1.121094-.503906.097656-.011719.183593-.054688.253906-.121094.371094-.25.871094-.503906 1.246094-.753906.371093-.246094.75-.621094 1.125-.871094.125-.128906.246093-.128906.246093-.25.128907-.125.378907-.246094.503907-.5l257.371093-257.371094c24.351563-24.394531 24.351563-63.898437 0-88.289062zm-232.273438 353.148437-86.914062-86.910156 217.535156-217.535156 86.914062 86.910156zm-99.15625-63.808593 75.929688 75.925781-114.015626 37.960938zm347.664062-184.820313-13.238281 13.363282-86.917969-86.917969 13.367188-13.359375c14.621094-14.609375 38.320312-14.609375 52.945312 0l33.964844 33.964844c14.511719 14.6875 14.457032 38.332031-.121094 52.949218zm0 0"></path></svg> Editar mi pedido
+              Continuar</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal generic -->
+<div class="fdm-popup-init" id="popupGeneric">
+  <div class="fdm-popup-content-edit col-sm-12 col-md-5" style="height: auto; font-size: 25px;">
+    <div class="fdm-popup-close-btn" (click)="closePopup('popupGeneric')"><svg height="15pt" viewBox="0 0 511.992 511.992" width="15pt" xmlns="http://www.w3.org/2000/svg"><path d="m415.402344 495.421875-159.40625-159.410156-159.40625 159.410156c-22.097656 22.09375-57.921875 22.09375-80.019532 0-22.09375-22.097656-22.09375-57.921875 0-80.019531l159.410157-159.40625-159.410157-159.40625c-22.09375-22.097656-22.09375-57.921875 0-80.019532 22.097657-22.09375 57.921876-22.09375 80.019532 0l159.40625 159.410157 159.40625-159.410157c22.097656-22.09375 57.921875-22.09375 80.019531 0 22.09375 22.097657 22.09375 57.921876 0 80.019532l-159.410156 159.40625 159.410156 159.40625c22.09375 22.097656 22.09375 57.921875 0 80.019531-22.097656 22.09375-57.921875 22.09375-80.019531 0zm0 0" fill="#e76e54"></path></svg></div>
+    <h2>{{tittle}}
+    </h2>
+    <div class="fdm-popup-form">
+      <div class="fdm-popup-form-radios">
+        {{description}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-about-min *ngIf="settings.companyInfo.aboutContent"></app-about-min>
 
 <!-- about bottom -->
-<section class="about-bottom pb-5">
+<!--<section class="about-bottom pb-5">
 	<div class="container pb-lg-3">
 		<div class="row bottom-grids">
 			<div class="col-lg-6">
@@ -132,17 +336,17 @@
 			</div>
 			<div class="col-lg-6 mt-lg-0 mt-5">
 				<h4>A tasty and healthy Crispy that we serve for you.</h4>
-				<p class="py-3">Suspendisse id felis sed felis tincidunt finibus. Nulla sed in justo inter tellus. Donec ut felis ante. Quisque acin sapien 
+				<p class="py-3">Suspendisse id felis sed felis tincidunt finibus. Nulla sed in justo inter tellus. Donec ut felis ante. Quisque acin sapien
 				quis orci pulvinar finibus quis urna. onec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac quis eu urna Quisque quis eu urna lorem elit.</p>
 				<p class="">Quisque ac sapien quis orci pulvinar finibus quis eu urna Quisque Suspendisse id felis sed felis tincidunt finibus.
 				Nulla sed justo tellus. Donec ut felis ante ipsum.</p>
 			</div>
 		</div>
 	</div>
-</section>
+</section>-->
 <!-- //about bottom -->
-
-<!-- services -->
+<!--
+&lt;!&ndash; services &ndash;&gt;
 <section class="services py-5">
 	<div class="container py-lg-5">
 		<h3 class="heading text-center mb-sm-5 mb-4">What we do </h3>
@@ -198,9 +402,9 @@
 		</div>
 	</div>
 </section>
-<!-- //services -->	
+&lt;!&ndash; //services &ndash;&gt;
 
-<!-- testimonials -->
+&lt;!&ndash; testimonials &ndash;&gt;
 <section class="feedback" id="testimonials">
 	<div class="feedback-layer py-5">
 		<div class="container py-lg-5">
@@ -209,7 +413,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="feedback-info">
 						<div class="feedback-top p-4">
-							<span class="fa fa-quote-right"></span> 
+							<span class="fa fa-quote-right"></span>
 							<p> Sed semper leo metus, a lacinia eros ut semper at. Etiam sodales orci sit amet vehicula pellentesque. blandit nec sed tellus. Nam pharetra.</p>
 							<div class="clearfix"></div>
 						</div>
@@ -228,7 +432,7 @@
 				<div class="col-lg-4 col-md-6 mt-md-0 mt-5">
 					<div class="feedback-info">
 						<div class="feedback-top p-4">
-							<span class="fa fa-quote-right"></span> 
+							<span class="fa fa-quote-right"></span>
 							<p> Sed semper leo metus, a lacinia eros ut semper at. Etiam sodales orci sit amet vehicula pellentesque. blandit nec sed tellus. Nam pharetra.</p>
 							<div class="clearfix"></div>
 						</div>
@@ -247,7 +451,7 @@
 				<div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
 					<div class="feedback-info">
 						<div class="feedback-top p-4">
-							<span class="fa fa-quote-right"></span> 
+							<span class="fa fa-quote-right"></span>
 							<p> Sed semper leo metus, a lacinia eros ut semper at. Etiam sodales orci sit amet vehicula pellentesque. blandit nec sed tellus. Nam pharetra.</p>
 							<div class="clearfix"></div>
 						</div>
@@ -266,10 +470,11 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>-->
 <!-- //testimonials -->
+<!--
 
-<!-- blog -->
+&lt;!&ndash; blog &ndash;&gt;
 <section class="blog py-5">
 	<div class="container py-md-5 py-3">
 		<h3 class="heading text-center mb-sm-5 mb-4">Latest News </h3>
@@ -301,14 +506,15 @@
 		</div>
 	</div>
 </section>
-<!-- //blog -->
+&lt;!&ndash; //blog &ndash;&gt;
+-->
 
 <!-- appointment -->
 <section class="appointment text-center py-5">
-	<div class="container py-sm-3">
-		<h4>Eat Healthy and delicious Crispy from our hotel</h4>
-		<p class="mt-3">Call us to book your Table today or to order your Food</p>
-		<h3>+1 123 456 789</h3>
-	</div>
+  <div class="container py-sm-3">
+    <h4>¡Queremos llegar a tu mesa!</h4>
+    <p class="mt-3">También puedes contactarnos al</p>
+    <h3>+ {{settings.companyInfo.contactPhone}}</h3>
+  </div>
 </section>
 <!-- //appointment -->

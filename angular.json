@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "crispy": {
+    "managrill": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/crispy",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "crispy:build"
+            "browserTarget": "managrill:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "crispy:build:production"
+              "browserTarget": "managrill:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crispy:build"
+            "browserTarget": "managrill:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "crispy:serve"
+            "devServerTarget": "managrill:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "crispy:serve:production"
+              "devServerTarget": "managrill:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "crispy",
+  "defaultProject": "managrill",
   "cli": {
     "analytics": "8288b138-ed0f-4bc6-8ffe-58d5fd71ee40"
   }

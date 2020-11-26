@@ -4,13 +4,14 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BannerComponent } from './banner/banner.component';
 
 
 @NgModule({
   declarations: [
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
@@ -18,9 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    MenuComponent,
-    FooterComponent
-  ],
+    exports: [
+        MenuComponent,
+        FooterComponent,
+        BannerComponent
+    ],
 })
 export class ComponentsModule { }
